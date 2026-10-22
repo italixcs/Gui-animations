@@ -1,7 +1,9 @@
 # Design direction
 
-This is the proposed visual and interaction contract. Values below are starting
-points for the first in-game prototype, not yet calibrated renderer constants.
+This is the visual and interaction contract for the first release. The
+[canonical tokens and component specifications](../design/README.md) are the
+machine-readable source of truth. The ModernUI adapter maps lengths to dp and
+type sizes to sp; see [compatibility](compatibility.md).
 
 ## Visual character
 
@@ -30,7 +32,7 @@ screen title. Avoid unnecessary weights and tiny helper text. Prefer opacity
 and translation for text-bearing animations; if scale is used, verify text stays
 sharp throughout the animation.
 
-## Proposed tokens
+## Token defaults
 
 All lengths are logical design units. During the compatibility spike, define
 their conversion to the selected renderer's coordinates and physical pixels.

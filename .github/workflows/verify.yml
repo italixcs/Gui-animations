@@ -1,0 +1,52 @@
+name: Verify toolkit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: gradle
+      - name: Validate design tokens
+        run: python3 design/validate.py
+      - name: Test design and installer
+        run: |
+          python3 -m unittest discover -s tests/design -v
+          python3 -m unittest discover -s tests/python -v
+      - name: Build and test Minecraft modules
+        run: ./gradlew --no-daemon build
+      - name: Verify self-contained package and consuming project
+        run: |
+          python3 scripts/package_skill.py --check
+          python3 tests/verification/verify_consumer.py --build-starter
+      - name: Check documentation and packaging
+        run: python3 scripts/validate_repo.py
+      - name: Upload showcase build and test reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: showcase-and-test-reports
+          if-no-files-found: ignore
+          path: |
+            examples/showcase-mod/build/libs/*.jar
+            **/build/reports/tests/**

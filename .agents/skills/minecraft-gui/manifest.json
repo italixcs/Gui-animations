@@ -1,0 +1,264 @@
+{
+  "files": {
+    "LICENSE": {
+      "mode": "0644",
+      "sha256": "c4ff2c1fe30dae18fe0cd4a1c2c3cf074820f783135c44c93fdf4aa6d1bbef5f"
+    },
+    "SKILL.md": {
+      "mode": "0644",
+      "sha256": "29fcc3b93f6646055d438284fede5ec2d246b6c859daf6113427787fd4bd9132"
+    },
+    "references/compatibility.json": {
+      "mode": "0644",
+      "sha256": "478219d0b8a82260e245e267f08e884dc54eba2bb9f09285fb0ff885ede09013"
+    },
+    "references/design.md": {
+      "mode": "0644",
+      "sha256": "35dcb220da6d8f75304e608f323caf746da613410f8a845db29c8617ee31c316"
+    },
+    "references/implementation.md": {
+      "mode": "0644",
+      "sha256": "ff1806b587baa75342e550baf6079f475ccfbe9340f735f4585facd3905d3cd7"
+    },
+    "references/motion.md": {
+      "mode": "0644",
+      "sha256": "9542e162f1dda3e1dced405e8a717053e758dfa0c661ad4d34f8f02146036d76"
+    },
+    "references/review.md": {
+      "mode": "0644",
+      "sha256": "12a6d3eeebc838da3fe8b9010278c2242398fb93a6695032740521c291bfe276"
+    },
+    "references/source-map.md": {
+      "mode": "0644",
+      "sha256": "737a30535624e7b5eec05b12d8c1eb9938028a5633cc327915216ecedb4028e1"
+    },
+    "scripts/install.py": {
+      "mode": "0644",
+      "sha256": "3992d9a00da11b8654c3dfd8bf5a8b53e8df2120370ff122fa537d8a97162fcb"
+    },
+    "templates/starter/.gitignore": {
+      "mode": "0644",
+      "sha256": "e8b9c1decdaddb7dcf514d12d5c121fe0a996b4dfd9bfbd6522d405fed3f91ee"
+    },
+    "templates/starter/LICENSE": {
+      "mode": "0644",
+      "sha256": "c4ff2c1fe30dae18fe0cd4a1c2c3cf074820f783135c44c93fdf4aa6d1bbef5f"
+    },
+    "templates/starter/README.md": {
+      "mode": "0644",
+      "sha256": "bd8c87b86b288f720621cfbaaaf196f94d070862bbe1b5c032e91683db11fafd"
+    },
+    "templates/starter/THIRD_PARTY_NOTICES.md": {
+      "mode": "0644",
+      "sha256": "a0c50f8626a4ee21be5c6bb37fdece3b870526788c2c771157140e033702dd6a"
+    },
+    "templates/starter/adapters/fabric-modernui/build.gradle": {
+      "mode": "0644",
+      "sha256": "4663cae513ec4cc8643b7284bc46a24e423e94fa2dca14b76a66471895df68d0"
+    },
+    "templates/starter/adapters/fabric-modernui/src/main/java/dev/guianimations/modernui/DemoSettings.java": {
+      "mode": "0644",
+      "sha256": "2beae8cb37f55d82f444090de972b9e33ec023a73b5284976d79e40c47b90bcf"
+    },
+    "templates/starter/adapters/fabric-modernui/src/main/java/dev/guianimations/modernui/SettingsStore.java": {
+      "mode": "0644",
+      "sha256": "4e253f6f39f1c50a7910fa04aa7ebdf01a11502e74b98b0c5a792f3dd29d6935"
+    },
+    "templates/starter/adapters/fabric-modernui/src/main/java/dev/guianimations/modernui/ShowcaseFragment.java": {
+      "mode": "0644",
+      "sha256": "3d46436d952a3263883fcc27e8eca853f8eac10c7d8757e95a656fd393066d22"
+    },
+    "templates/starter/adapters/fabric-modernui/src/main/java/dev/guianimations/modernui/UiButton.java": {
+      "mode": "0644",
+      "sha256": "bed7a83820cf245536277874b0cb1ad2332b9710265a7d5a03116d67a1d9d000"
+    },
+    "templates/starter/adapters/fabric-modernui/src/main/java/dev/guianimations/modernui/UiMotion.java": {
+      "mode": "0644",
+      "sha256": "19567196aca3110cad32a0f2bf508a9d14de5dd5e7ef88490bc07beccdfae041"
+    },
+    "templates/starter/adapters/fabric-modernui/src/main/java/dev/guianimations/modernui/UiTheme.java": {
+      "mode": "0644",
+      "sha256": "ee1c186ac5f0ee6b449c0727e47f640e6dbf0b7227583e7e6f8d1e6f6991d10b"
+    },
+    "templates/starter/adapters/fabric-modernui/src/test/java/dev/guianimations/modernui/SettingsStoreTest.java": {
+      "mode": "0644",
+      "sha256": "aee8531ba9d8fa3d1eee16255e17cd8d7659143582d7f61a133866cc5a8ff295"
+    },
+    "templates/starter/adapters/fabric-modernui/src/test/java/dev/guianimations/modernui/UiMotionTest.java": {
+      "mode": "0644",
+      "sha256": "603900d666cd6c34596b1a74dc926a07757e699d4909698b8ea3ad93c0b667c6"
+    },
+    "templates/starter/build.gradle": {
+      "mode": "0644",
+      "sha256": "f13db4da88ed1af7840289736cbb20eaba3a796cce393ae879d4f3dfdf629e94"
+    },
+    "templates/starter/design/README.md": {
+      "mode": "0644",
+      "sha256": "3d0fe402ed0ac43d38ca1f8f1458e326c6d4126253ce52ce7f0547b64b0d32c7"
+    },
+    "templates/starter/design/component-specs/README.md": {
+      "mode": "0644",
+      "sha256": "492af5c5a93f3f480008ba3e87d129f7bdc10f8d721a9d7aa7cea3bef10cce64"
+    },
+    "templates/starter/design/component-specs/button.md": {
+      "mode": "0644",
+      "sha256": "8a75b8e5e018cc5e457520d5253e375fc8b0a9c61c58958d988ef23f923083ea"
+    },
+    "templates/starter/design/component-specs/modal.md": {
+      "mode": "0644",
+      "sha256": "c1ab766e9042c49af1419e4c21f46df444f55be4f391b10694b531b612a0c2d1"
+    },
+    "templates/starter/design/component-specs/panel.md": {
+      "mode": "0644",
+      "sha256": "2e68fc0102e08af9d65a470b55ccf28c567a97d18122e42ce52246f02ca54585"
+    },
+    "templates/starter/design/component-specs/screen.md": {
+      "mode": "0644",
+      "sha256": "9c0c91ea0be980358a15724f69e2759568b4372b5b7dfe734fb6a18d047fd499"
+    },
+    "templates/starter/design/component-specs/slider.md": {
+      "mode": "0644",
+      "sha256": "2b02b012e498ec049f6c841462752a79c4711f20eee58c545d87c26ba38a6169"
+    },
+    "templates/starter/design/component-specs/toast.md": {
+      "mode": "0644",
+      "sha256": "da2b6076a93b9dc11249ef4c959047bc2b1c697238c66157542fb2115e3b57f9"
+    },
+    "templates/starter/design/component-specs/toggle.md": {
+      "mode": "0644",
+      "sha256": "d82d38ef5788dc389a58bbceaf6855046c2c13bc123f4452c9c60ed44f53fb2c"
+    },
+    "templates/starter/design/component-specs/tooltip.md": {
+      "mode": "0644",
+      "sha256": "83fec8466975ed90e6e77d211acf5db720d33edabd1ddf26116e08e45f93a9e4"
+    },
+    "templates/starter/design/fonts/Inter-Regular.ttf": {
+      "mode": "0644",
+      "sha256": "40d692fce188e4471e2b3cba937be967878f631ad3ebbbdcd587687c7ebe0c82"
+    },
+    "templates/starter/design/fonts/OFL.txt": {
+      "mode": "0644",
+      "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+    },
+    "templates/starter/design/fonts/README.md": {
+      "mode": "0644",
+      "sha256": "402580f40665da228acf7570a4b4906fd15ecaee6b5128dfe89d973ab19d11fa"
+    },
+    "templates/starter/design/tokens.json": {
+      "mode": "0644",
+      "sha256": "59347ea7cfb5cab57cc6df0d79843e40a8706335f11e1b40dfaeb2aac7494f21"
+    },
+    "templates/starter/design/tokens.schema.json": {
+      "mode": "0644",
+      "sha256": "fe41f8451b08e4b02f4fbf072739aebcf1b829c06ce7a8e74ea7e0011fb33b28"
+    },
+    "templates/starter/design/validate.py": {
+      "mode": "0644",
+      "sha256": "84486c37dd259c9aca5351471d576a3096f76f39f015b534043b64d59ff8aa49"
+    },
+    "templates/starter/examples/showcase-mod/build.gradle": {
+      "mode": "0644",
+      "sha256": "4e948fc9355a421078de2d623ed908a2ad91accb3ede0dabcc7a8133fad0b91d"
+    },
+    "templates/starter/examples/showcase-mod/src/main/java/dev/guianimations/showcase/ShowcaseClient.java": {
+      "mode": "0644",
+      "sha256": "a22c68a716eaefa593e8c2317a29b5689f6850d71efaefd312f053b8964083c0"
+    },
+    "templates/starter/examples/showcase-mod/src/main/java/dev/guianimations/showcase/mixin/GlCommandEncoderMixin.java": {
+      "mode": "0644",
+      "sha256": "58a9f4924451004a11a56c21ea06b2e876e4bb9463457ca5b6ee6fde87137797"
+    },
+    "templates/starter/examples/showcase-mod/src/main/java/dev/guianimations/showcase/mixin/ModernUiRenderMixin.java": {
+      "mode": "0644",
+      "sha256": "96ecc9d65f4b7089c46afee1b93075ac4e2a2a7aa9f9759c140c745c9c8f90e9"
+    },
+    "templates/starter/examples/showcase-mod/src/main/java/dev/guianimations/showcase/render/ExternalRenderState.java": {
+      "mode": "0644",
+      "sha256": "2ad72616aba875430fbe3725a9d201eeaf7a2a6ec78041689ef9b40e92e5b416"
+    },
+    "templates/starter/examples/showcase-mod/src/main/resources/assets/guianimations/lang/en_us.json": {
+      "mode": "0644",
+      "sha256": "9c1bb85ee6c3532b293502955fadef98b4ea769f08102967f702619c6b6dd260"
+    },
+    "templates/starter/examples/showcase-mod/src/main/resources/fabric.mod.json": {
+      "mode": "0644",
+      "sha256": "e4b628270469ee023cdfe45ef68cd46a8b34066f117535bd601b05626200b89f"
+    },
+    "templates/starter/examples/showcase-mod/src/main/resources/guianimations.mixins.json": {
+      "mode": "0644",
+      "sha256": "3fd1fe833d58032378739217640cbace044f37bf410ec16cf3ae34a039109fae"
+    },
+    "templates/starter/gradle.properties": {
+      "mode": "0644",
+      "sha256": "a47bbdc486b9d7cb28b628e17f2977686a3f0e335117f57a4756d82cca012e7f"
+    },
+    "templates/starter/gradle/wrapper/gradle-wrapper.jar": {
+      "mode": "0644",
+      "sha256": "55243ef57851f12b070ad14f7f5bb8302daceeebc5bce5ece5fa6edb23e1145c"
+    },
+    "templates/starter/gradle/wrapper/gradle-wrapper.jar.sha256": {
+      "mode": "0644",
+      "sha256": "0399ef9e6298121dca93468bcd1d3a1738e0ad98f5fc7cf1b7c14684e61be59c"
+    },
+    "templates/starter/gradle/wrapper/gradle-wrapper.properties": {
+      "mode": "0644",
+      "sha256": "e7194d7619048f7e4c7e705d6cacd786ac22b340368ff2bd971cc704c93c14aa"
+    },
+    "templates/starter/gradlew": {
+      "mode": "0755",
+      "sha256": "f96a757581fe5292465e3f3393380bd11fd8086d450b92e7c693da6513f583fe"
+    },
+    "templates/starter/gradlew.bat": {
+      "mode": "0644",
+      "sha256": "c46a27c79007746de5922b17abb6230d64ad8b1ba3ad1585ee5c6543c2a9b129"
+    },
+    "templates/starter/licenses/Gradle-LICENSE.txt": {
+      "mode": "0644",
+      "sha256": "cf234c4188d773406f640bf89be680d9288f40ff96901c70d643fcea96ad46df"
+    },
+    "templates/starter/licenses/Gradle-NOTICE.txt": {
+      "mode": "0644",
+      "sha256": "c2de5fd9adc7ccc4e1382a0e1f38ec6e14f8ca6e28d3c20289fe80353b019aa1"
+    },
+    "templates/starter/reference/core/README.md": {
+      "mode": "0644",
+      "sha256": "73a9fcc43349466ff838252539e5568fca6511b8f4e4398e9d2d6ac5b3a9fde0"
+    },
+    "templates/starter/reference/core/build.gradle": {
+      "mode": "0644",
+      "sha256": "0a55082d7ceee3eb0b3dbea60911955bd89ac70b35a5cf2bd6acfef735f7e287"
+    },
+    "templates/starter/reference/core/src/main/java/dev/guianimations/core/Easing.java": {
+      "mode": "0644",
+      "sha256": "b08123f8f43ff3cbb7a420788475b6ed571d13071b0187b1304b45930da12417"
+    },
+    "templates/starter/reference/core/src/main/java/dev/guianimations/core/Tween.java": {
+      "mode": "0644",
+      "sha256": "0fe4e45081ad556c9a930df13030e3c6632458bbaa9c0ea6e3ec0395833dfff8"
+    },
+    "templates/starter/reference/core/src/test/java/dev/guianimations/core/EasingTest.java": {
+      "mode": "0644",
+      "sha256": "e21d83ccd5462741fda4df51cea12fc2b6e2ada50fbd92e08131eee4a734ee6a"
+    },
+    "templates/starter/reference/core/src/test/java/dev/guianimations/core/TweenTest.java": {
+      "mode": "0644",
+      "sha256": "7fd13b54857d1c298fd8d22d91e341562564961b1deee571dd0a984fc4e6ad09"
+    },
+    "templates/starter/settings.gradle": {
+      "mode": "0644",
+      "sha256": "f22f9e07e058fd4f6925e687a1028d8c0aef2e33a1fedbf42bffc4964ab4a5d2"
+    },
+    "templates/starter/tests/design/test_tokens.py": {
+      "mode": "0644",
+      "sha256": "d692ce19de87879aa4563fb4913a50d1b3a7b7084f405d4e45dba920abe3ed01"
+    }
+  },
+  "name": "minecraft-gui",
+  "schema_version": 1,
+  "source": {
+    "payload_sha256": "82cd817fb4e1c3211fa3250204b41b8de1014d4688290d36ebc064815d9ad01c",
+    "repository": "https://github.com/italixcs/Gui-animations",
+    "revision": null
+  },
+  "version": "0.1.0"
+}

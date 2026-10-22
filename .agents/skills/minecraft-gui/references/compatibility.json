@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "Packaged starter sources target this stack only. Consult release verification evidence for observed runtime coverage.",
+  "target": {
+    "java": 25,
+    "loader": "fabric",
+    "mappings": "official Mojang names (unobfuscated Minecraft)",
+    "minecraft": "26.1.2",
+    "version_pins": "../templates/starter/gradle.properties"
+  },
+  "toolkit_version": "0.1.0"
+}

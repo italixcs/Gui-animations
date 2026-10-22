@@ -1,0 +1,44 @@
+plugins {
+    id 'base'
+    id 'net.fabricmc.fabric-loom' version '1.16.3' apply false
+}
+
+allprojects {
+    group = 'dev.guianimations'
+    version = '0.1.0'
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.fabricmc.net/' }
+        maven {
+            url = 'https://maven.izzel.io/releases/'
+            content { includeGroup 'icyllis.modernui' }
+        }
+        maven {
+            url = 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven/'
+            content { includeGroup 'fuzs.forgeconfigapiport' }
+        }
+        maven {
+            url = 'https://api.modrinth.com/maven'
+            content { includeGroup 'maven.modrinth' }
+        }
+    }
+}
+
+subprojects {
+    plugins.withType(JavaPlugin) {
+        tasks.withType(JavaCompile).configureEach {
+            options.encoding = 'UTF-8'
+        }
+        tasks.withType(AbstractArchiveTask).configureEach {
+            preserveFileTimestamps = false
+            reproducibleFileOrder = true
+        }
+    }
+}
+
+tasks.named('build') {
+    dependsOn ':reference:core:build', ':adapters:fabric-modernui:build', ':examples:showcase-mod:build'
+}
+tasks.named('check') {
+    dependsOn ':reference:core:check', ':adapters:fabric-modernui:check', ':examples:showcase-mod:check'
+}

@@ -1,0 +1,15 @@
+.gradle/
+**/build/
+**/run/
+dist/
+__pycache__/
+*.py[cod]
+.venv/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example

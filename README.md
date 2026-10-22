@@ -1,59 +1,77 @@
 # Gui-animations
 
-An AI agent toolkit for building smooth, modern Minecraft Java interfaces.
+An AI agent toolkit for building smooth, modern Minecraft Java interfaces:
+clean sans-serif text, anti-aliased shapes, consistent spacing, and responsive
+opening, closing, click, and popup animations.
 
-The goal: clean sans-serif text, anti-aliased shapes, consistent spacing, and
-responsive opening, closing, click, and popup animations inside Minecraft.
+**0.1.0 · Minecraft 26.1.2 · Fabric · JDK 25**
 
-**Status: researched blueprint.** This revision defines the idea and build plan.
-It does not contain a GUI library, installable mod, or tested Minecraft adapter yet.
+Includes a real ModernUI showcase, reusable Java components, a shared design
+system, and one self-contained `minecraft-gui` skill for your coding agent.
+See the [verification report](docs/verification-report.md) for observed coverage
+and remaining hardware/platform limits.
+
+![The actual Minecraft showcase](docs/media/showcase.png)
+
+[Watch the in-game interactions](docs/media/interactions.mp4).
 
 ## Start here
 
-- [Build plan](docs/PLAN.md): scope, architecture, repository layout, and milestones.
-- [Using it in your client or mod](docs/USAGE.md): one installation, one main skill, and reusable UI code.
+- [Get started](docs/getting-started.md): run the showcase, install the skill, or create a new mod starter.
+- [Use it in your client or mod](docs/USAGE.md): how the main skill and shared code work together.
+- [Compatibility](docs/compatibility.md): exact dependency pins and coordinate contract.
+- [Verification](docs/verification-report.md): build, installation, and runtime evidence.
 - [Examples and research](docs/RESEARCH.md): projects worth studying and their tradeoffs.
 - [Design direction](docs/DESIGN.md): typography, components, motion, and quality standards.
-- [Agent instructions](AGENTS.md): how to work in this repository.
+- [Build plan](docs/PLAN.md): architecture and milestone history.
 
-## What this repository will provide
+## Included
 
 | Part | Purpose |
 | --- | --- |
-| Agent instructions | Give coding agents an agreed workflow and clear constraints. |
-| One main skill | Guides the agent through design, implementation, motion, and review as one workflow. |
-| Design tokens | Keep colors, spacing, typography, radii, and timings consistent. |
-| Reusable Java recipes | Demonstrate working components and animation behavior on an explicitly supported stack. |
-| In-game showcase | Let people and agents inspect the intended result in Minecraft. |
-| Verification guides | Catch blurry fonts, broken input, inconsistent timing, and rendering regressions. |
+| [Main skill](.agents/skills/minecraft-gui/SKILL.md) | Design → implementation → motion → review, with local references and actual source templates. |
+| [Installer](scripts/install.py) | Codex and Claude Code project setup; preserves rules and detects update conflicts. |
+| [Design system](design/README.md) | Machine-readable tokens, component specifications, licensed Inter font, schema and contrast checks. |
+| [Motion core](reference/core/README.md) | Monotonic, interruptible transitions with reduced-motion and lifecycle tests. |
+| [ModernUI adapter](adapters/fabric-modernui/build.gradle) | Shared theme, animated controls, settings storage, and screen composition. |
+| [Showcase mod](examples/showcase-mod/build.gradle) | A settings screen with tabs, toggles, slider, modal, tooltips, toasts, and local persistence. |
 
-## How you will use it
+## Install into your project
 
-Install the versioned toolkit into your own client/mod repository, then ask your
-coding agent: "Use minecraft-gui to build my settings screen."
+Clone this repository, then run from the checkout:
 
-The main skill will identify your stack, use the shared theme and components,
-implement the screen, and guide verification in Minecraft. A short instruction
-in your project's agent rules will make the toolkit the default for future UI
-tasks. You will not have to choose and invoke each supporting workflow yourself.
+```sh
+python3 scripts/install.py --project /path/to/your-client --agent codex
+```
 
-The skill teaches the agent; Java components and the renderer run inside the
-game. This installation flow is planned, not available yet. See the
-[usage design](docs/USAGE.md) for the concrete project layout and examples.
+Use `--agent claude` for Claude Code. Python 3.10+ is required. To import the
+complete runnable demo into a new project, also add `--starter`.
 
-## First build
+Then ask your coding agent inside **your client/mod project**:
 
-One polished settings screen: a navigation area, scrollable settings, a button,
-toggle, slider, confirmation popup, tooltip, and toast. It should demonstrate
-opening and closing transitions, keyboard navigation, and reduced motion.
+> Use minecraft-gui to build my settings menu. Reuse the shared theme and
+> components, add smooth animations, and connect the controls to my settings.
 
-Java Edition client mods are the confirmed target. Fabric is the proposed first
-loader. ModernUI is the leading renderer candidate; a small compatibility spike
-will confirm it before we commit to a particular Minecraft/library version.
+The skill teaches the agent; the imported Java components and renderer run in
+Minecraft. The default installation preserves your existing build/source files.
+Later screens reuse the same project theme and components.
 
-See the [milestone checklist](docs/PLAN.md#build-order) for the implementation order.
+## Run the showcase
+
+With JDK 25 installed:
+
+```sh
+./gradlew build
+./gradlew :examples:showcase-mod:runClient
+```
+
+Press **F8** at the title screen or in game. Escape closes the top layer and
+returns to the previous screen. Use `gradlew.bat` on Windows.
+
+The [getting-started guide](docs/getting-started.md) includes the full test suite,
+safe update behavior, standalone starter setup, and agent prompt examples.
 
 ## License
 
-Original repository content is MIT licensed. Referenced libraries, fonts, and
-screenshots retain their own licenses and attribution; see [research](docs/RESEARCH.md).
+Original repository content is MIT licensed. Fonts, the Gradle wrapper, and
+external libraries retain their own terms; see [third-party notices](THIRD_PARTY_NOTICES.md).

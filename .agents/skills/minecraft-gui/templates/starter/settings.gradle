@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        maven { url = 'https://maven.fabricmc.net/' }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'gui-animations'
+include 'reference:core', 'adapters:fabric-modernui', 'examples:showcase-mod'

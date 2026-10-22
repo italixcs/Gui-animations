@@ -1,0 +1,15 @@
+{
+  "high_gl_errors": 0,
+  "invalid_operation": 0,
+  "ffmpeg_exit": 0,
+  "actions": [
+    "keyboard reset confirmation",
+    "save toast",
+    "Escape and F8 reopen",
+    "Style navigation",
+    "320x240 resize",
+    "1280x800 resize",
+    "F3+T reload",
+    "actual MP4 interactions"
+  ]
+}

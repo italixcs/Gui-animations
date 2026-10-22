@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "guianimations",
+  "version": "${version}",
+  "name": "Gui-animations Showcase",
+  "description": "Smooth, accessible Minecraft UI reference components for coding agents.",
+  "authors": ["Italixcs"],
+  "contact": {"sources": "https://github.com/italixcs/Gui-animations"},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {"client": ["dev.guianimations.showcase.ShowcaseClient"]},
+  "mixins": ["guianimations.mixins.json"],
+  "depends": {
+    "fabricloader": "=0.19.2",
+    "minecraft": "=26.1.2",
+    "java": ">=25",
+    "fabric-api": "=0.149.0+26.1.2",
+    "modernui": "=3.13.0.5",
+    "forgeconfigapiport": "=26.1.3"
+  }
+}

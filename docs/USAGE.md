@@ -1,7 +1,9 @@
 # Using the toolkit in a client or mod
 
-This document describes the intended first-release experience. The installer,
-main skill, and Java templates are not implemented in this planning revision.
+Gui-animations 0.1.0 provides a self-contained main skill, installer, shared
+design system, Java components, and source starter. See
+[getting started](getting-started.md) for commands and the
+[verification report](verification-report.md) for observed coverage.
 
 ## One installation, one entry point
 
@@ -29,7 +31,7 @@ the coding agent or skill files.
 
 ## First-time setup
 
-The planned installer will:
+The installer:
 
 1. Copy a pinned release's self-contained main skill package to the selected
    agent's supported project-local skill location.
@@ -38,7 +40,7 @@ The planned installer will:
 3. Record the toolkit release and imported files so later tasks use a consistent
    source of truth and upgrades can identify local changes.
 
-For a compatible Codex-style setup, the intended result is:
+For Codex, installation produces this layout:
 
 ```text
 my-client/
@@ -46,16 +48,17 @@ my-client/
   .agents/skills/minecraft-gui/
     SKILL.md                         # Main entry point
     references/                      # Design, implementation, motion, review
-    assets/                          # Packaged tokens and required notices
-    templates/                       # Code for verified supported targets
+    templates/starter/design/        # Shared tokens, font, component specs
+    templates/starter/               # Complete version-pinned source project
+    manifest.json                    # Payload identities and file modes
   gui-toolkit.lock.json               # Toolkit release and import manifest
   ...existing Minecraft project files...
 ```
 
-This is an illustrative layout, not a current install result. Use the actual
-supported location for each agent and document it. Skill discovery differs
-between agents and editors; the first prompt should explicitly name the main
-skill. The installer must not assume automatic discovery in every tool.
+For Claude Code, the installer uses `.claude/skills/minecraft-gui` and
+`CLAUDE.md` instead. Skill discovery differs between agents and editors; the
+first prompt should explicitly name the main skill. The installer does not
+assume automatic discovery in every tool.
 
 The added project instruction should convey:
 
@@ -124,25 +127,28 @@ project-level rule points the agent back to the main skill across sessions;
 the actual theme, component code, and build files preserve implementation
 decisions without relying on conversational memory.
 
-The first release will import versioned source templates. That gives projects
+The `--starter` option imports versioned source templates. That gives projects
 working code they can adapt in their own namespace without waiting for a
 separate Gui-animations Maven library. A published runtime library can be
 evaluated later if shared-code maintenance justifies it. The renderer and its
 companion libraries still need real, pinned build dependencies.
 
-Re-running the installer should be safe and repeatable. Upgrades should compare
-the previous manifest with local files, show proposed changes, and preserve
-project edits. They must not blindly overwrite customized components or fonts.
+Re-running the installer is idempotent. Upgrades compare the previous manifest
+with local files and preserve project edits. Conflicting customized components,
+fonts, or managed-rule sections cause a preflight failure before files change.
+Use `--dry-run` to inspect the proposed changes.
 
-## How we prove this workflow works
+## How we verify this workflow
 
-Before declaring the toolkit usable, install it into a separate test mod
-repository. With only that installed package available, ask an agent to create
-a screen and then add a second matching screen in a fresh session. Check that
-it can discover the main skill, resolve its references, reuse the same shared
-components, compile, and produce the intended in-game result.
+The independent [consumer harness](../tests/verification/verify_consumer.py)
+installs the package into separate project directories, verifies its payload and
+local references, checks repeat installs and conflict handling, and can compile
+the standalone starter from the installed package. The release report records
+these results separately from actual Minecraft observations.
 
-Also verify that installation preserves existing agent instructions, repeated
-installation does not duplicate code, unsupported targets are identified, and
-updates preserve local edits. This consuming-project test is as important as
-the toolkit's own showcase.
+When evaluating an agent or extending the toolkit, also ask it to create a new
+screen and add a second matching screen in a fresh session. Check discovery,
+shared-code reuse, build success, and the intended in-game result. The skill is
+guidance for the chosen coding agent; automatic compliance by every agent or
+editor is not assumed. This consuming-project workflow is as important as the
+toolkit's own showcase.

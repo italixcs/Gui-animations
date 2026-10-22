@@ -1,0 +1,39 @@
+plugins { id 'net.fabricmc.fabric-loom' }
+
+base { archivesName = 'gui-animations-showcase' }
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    compileOnly "icyllis.modernui:ModernUI-Fabric:${rootProject.minecraft_version}-${rootProject.modernui_version}"
+    compileOnly "dev.icyllis:modernui-core:${rootProject.modernui_core_version}"
+    runtimeOnly 'maven.modrinth:modern-ui:uf6cAgLr'
+    implementation "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${rootProject.forge_config_api_port_version}"
+    implementation project(':adapters:fabric-modernui')
+    include project(':adapters:fabric-modernui')
+    include project(':reference:core')
+}
+
+loom {
+    runs {
+        client {
+            client()
+            runDir 'run'
+            property 'guianimations.demo.autoOpen', System.getProperty('guianimations.demo.autoOpen', 'false')
+        }
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand(version: project.version) }
+}
+
+jar {
+    from(rootProject.file('LICENSE')) { into 'META-INF'; rename { 'LICENSE-gui-animations' } }
+}

@@ -1,5 +1,12 @@
 # Project plan
 
+Implementation status: the first-release source, installer, skill package,
+design system, and tests are now present. Use [getting started](getting-started.md)
+for current commands and the [verification report](verification-report.md) for
+completed checks and runtime evidence. The plan below preserves the original
+scope and milestones; candidate choices have been resolved to the exact stack
+in [compatibility](compatibility.md).
+
 ## Idea
 
 Make `Gui-animations` the repository an AI agent can consult or install skills

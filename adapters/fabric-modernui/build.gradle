@@ -1,0 +1,33 @@
+plugins { id 'java-library' }
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+
+dependencies {
+    api project(':reference:core')
+    compileOnly "dev.icyllis:modernui-core:${rootProject.modernui_core_version}"
+    compileOnly 'com.google.code.gson:gson:2.11.0'
+    testImplementation platform('org.junit:junit-bom:5.12.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation("dev.icyllis:modernui-core:${rootProject.modernui_core_version}") { transitive = false }
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test { useJUnitPlatform() }
+
+def tokenResources = layout.buildDirectory.dir('generated/token-resources')
+tasks.register('syncDesignTokens', Copy) {
+    from(rootProject.file('design')) {
+        include 'tokens.json', 'fonts/Inter-Regular.ttf', 'fonts/OFL.txt'
+    }
+    into(tokenResources.map { it.dir('assets/guianimations') })
+}
+sourceSets.main.resources.srcDir(tokenResources)
+tasks.named('processResources') { dependsOn 'syncDesignTokens' }
+tasks.named('sourcesJar') { dependsOn 'syncDesignTokens' }
+
+jar {
+    from(rootProject.file('LICENSE')) { into 'META-INF'; rename { 'LICENSE-gui-animations' } }
+}

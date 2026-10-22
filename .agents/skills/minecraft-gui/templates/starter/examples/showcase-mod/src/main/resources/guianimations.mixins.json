@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.guianimations.showcase.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": ["ModernUiRenderMixin", "GlCommandEncoderMixin"],
+  "injectors": {"defaultRequire": 1}
+}

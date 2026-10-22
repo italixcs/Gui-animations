@@ -13,10 +13,18 @@ a different workflow.
 
 ## Current phase
 
-This repository currently contains the researched blueprint. Read
-`docs/PLAN.md`, `docs/USAGE.md`, `docs/DESIGN.md`, and `docs/RESEARCH.md` before implementation.
-The future file tree in the plan is a proposal, not a list of existing modules.
-Keep README status and milestone checkboxes accurate as implementation lands.
+The first release contains the Minecraft 26.1.2 Fabric/ModernUI integration,
+showcase, design system, motion core, and installable `minecraft-gui` skill.
+Read `docs/getting-started.md`, `docs/compatibility.md`, `docs/USAGE.md`, and
+`docs/verification-report.md` before changing integration behavior. The original
+plan and research remain in `docs/PLAN.md` and `docs/RESEARCH.md`.
+
+For GUI work, use `.agents/skills/minecraft-gui/SKILL.md` as the main entry point.
+Edit canonical `design/`, `reference/`, and `adapters/` sources, then regenerate
+the packaged snapshot with `python3 scripts/package_skill.py`. Keep the main
+skill and its four workflow references concise; generated templates must match
+canonical sources. Run the documented checks and keep compatibility/evidence
+accurate. Compilation alone does not establish in-game appearance or behavior.
 
 ## Work sequence
 

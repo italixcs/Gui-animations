@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/italixcs/Gui-animations/design/tokens.schema.json",
+  "title": "Gui-animations design tokens v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "toolkitVersion", "name", "units", "colors", "typography", "spacing", "radii", "metrics", "effects", "motion", "contrastPairs"],
+  "properties": {
+    "$schema": {"const": "tokens.schema.json"},
+    "schemaVersion": {"const": 1},
+    "toolkitVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "name": {"type": "string", "minLength": 1},
+    "units": {
+      "type": "object", "additionalProperties": false,
+      "required": ["length", "fontSize", "duration", "referenceAdapter"],
+      "properties": {
+        "length": {"const": "logical_design_unit"},
+        "fontSize": {"const": "logical_type_unit"},
+        "duration": {"const": "millisecond"},
+        "referenceAdapter": {
+          "type": "object", "additionalProperties": false,
+          "required": ["id", "lengthMapping", "fontMapping", "pixelPolicy"],
+          "properties": {"id": {"type": "string", "minLength": 1}, "lengthMapping": {"type": "string", "minLength": 1}, "fontMapping": {"type": "string", "minLength": 1}, "pixelPolicy": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "colors": {
+      "type": "object", "additionalProperties": false,
+      "required": ["background", "panel", "raised", "border", "focus", "textPrimary", "textSecondary", "textDisabled", "textOnAccent", "accent", "accentHover", "accentPressed", "danger", "dangerSurface", "success", "successSurface", "scrim"],
+      "properties": {"background": {"$ref": "#/$defs/color"}, "panel": {"$ref": "#/$defs/color"}, "raised": {"$ref": "#/$defs/color"}, "border": {"$ref": "#/$defs/color"}, "focus": {"$ref": "#/$defs/color"}, "textPrimary": {"$ref": "#/$defs/color"}, "textSecondary": {"$ref": "#/$defs/color"}, "textDisabled": {"$ref": "#/$defs/color"}, "textOnAccent": {"$ref": "#/$defs/color"}, "accent": {"$ref": "#/$defs/color"}, "accentHover": {"$ref": "#/$defs/color"}, "accentPressed": {"$ref": "#/$defs/color"}, "danger": {"$ref": "#/$defs/color"}, "dangerSurface": {"$ref": "#/$defs/color"}, "success": {"$ref": "#/$defs/color"}, "successSurface": {"$ref": "#/$defs/color"}, "scrim": {"$ref": "#/$defs/color"}}
+    },
+    "typography": {
+      "type": "object", "additionalProperties": false,
+      "required": ["font", "sizes", "lineHeightMultiplier"],
+      "properties": {
+        "font": {
+          "type": "object", "additionalProperties": false,
+          "required": ["family", "style", "weight", "release", "internalVersion", "file", "license", "licenseFile", "sha256", "licenseSha256", "source", "fallbackPolicy"],
+          "properties": {"family": {"type": "string", "minLength": 1}, "style": {"type": "string", "minLength": 1}, "weight": {"type": "integer", "minimum": 100, "maximum": 900}, "release": {"type": "string", "minLength": 1}, "internalVersion": {"type": "string", "minLength": 1}, "file": {"$ref": "#/$defs/relativePath"}, "license": {"const": "OFL-1.1"}, "licenseFile": {"$ref": "#/$defs/relativePath"}, "sha256": {"$ref": "#/$defs/sha256"}, "licenseSha256": {"$ref": "#/$defs/sha256"}, "source": {"type": "string", "pattern": "^https://"}, "fallbackPolicy": {"type": "string", "minLength": 1}}
+        },
+        "sizes": {
+          "type": "object", "additionalProperties": false, "required": ["caption", "body", "section", "title"],
+          "properties": {"caption": {"$ref": "#/$defs/size"}, "body": {"$ref": "#/$defs/size"}, "section": {"$ref": "#/$defs/size"}, "title": {"$ref": "#/$defs/size"}}
+        },
+        "lineHeightMultiplier": {"type": "number", "minimum": 1.2, "maximum": 2}
+      }
+    },
+    "spacing": {"type": "object", "additionalProperties": false, "required": ["xs", "sm", "md", "lg", "xl"], "properties": {"xs": {"$ref": "#/$defs/size"}, "sm": {"$ref": "#/$defs/size"}, "md": {"$ref": "#/$defs/size"}, "lg": {"$ref": "#/$defs/size"}, "xl": {"$ref": "#/$defs/size"}}},
+    "radii": {"type": "object", "additionalProperties": false, "required": ["control", "panel", "popup", "pill"], "properties": {"control": {"$ref": "#/$defs/radius"}, "panel": {"$ref": "#/$defs/radius"}, "popup": {"$ref": "#/$defs/radius"}, "pill": {"$ref": "#/$defs/radius"}}},
+    "metrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["controlHeight", "compactControlHeight", "focusWidth", "borderWidth", "safeInset", "sidebarWidth", "sidebarBreakpoint", "maxContentWidth", "minViewportWidth", "minViewportHeight", "tooltipMaxWidth", "toastMaxWidth", "sliderTrackHeight", "toggleWidth", "toggleHeight"],
+      "properties": {"controlHeight": {"$ref": "#/$defs/size"}, "compactControlHeight": {"$ref": "#/$defs/size"}, "focusWidth": {"$ref": "#/$defs/size"}, "borderWidth": {"$ref": "#/$defs/size"}, "safeInset": {"$ref": "#/$defs/size"}, "sidebarWidth": {"$ref": "#/$defs/size"}, "sidebarBreakpoint": {"$ref": "#/$defs/size"}, "maxContentWidth": {"$ref": "#/$defs/size"}, "minViewportWidth": {"$ref": "#/$defs/size"}, "minViewportHeight": {"$ref": "#/$defs/size"}, "tooltipMaxWidth": {"$ref": "#/$defs/size"}, "toastMaxWidth": {"$ref": "#/$defs/size"}, "sliderTrackHeight": {"$ref": "#/$defs/size"}, "toggleWidth": {"$ref": "#/$defs/size"}, "toggleHeight": {"$ref": "#/$defs/size"}}
+    },
+    "effects": {"type": "object", "additionalProperties": false, "required": ["scrimOpacity", "blurEnabledDefault", "shadowEnabledDefault"], "properties": {"scrimOpacity": {"type": "number", "minimum": 0, "maximum": 1}, "blurEnabledDefault": {"type": "boolean"}, "shadowEnabledDefault": {"type": "boolean"}}},
+    "motion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["hover", "press", "release", "screenOpen", "screenClose", "popupOpen", "popupClose", "toastOpen", "toastClose", "tab", "tooltipDelayMs", "toastVisibleMs", "reducedMotion"],
+      "properties": {
+        "hover": {"$ref": "#/$defs/transition"}, "press": {"$ref": "#/$defs/transition"}, "release": {"$ref": "#/$defs/transition"}, "screenOpen": {"$ref": "#/$defs/transition"}, "screenClose": {"$ref": "#/$defs/transition"}, "popupOpen": {"$ref": "#/$defs/transition"}, "popupClose": {"$ref": "#/$defs/transition"}, "toastOpen": {"$ref": "#/$defs/transition"}, "toastClose": {"$ref": "#/$defs/transition"}, "tab": {"$ref": "#/$defs/transition"},
+        "tooltipDelayMs": {"type": "integer", "minimum": 0, "maximum": 2000},
+        "toastVisibleMs": {"type": "integer", "minimum": 3000, "maximum": 15000},
+        "reducedMotion": {"type": "object", "additionalProperties": false, "required": ["enabledDefault", "durationMs", "spatialMotion", "springs"], "properties": {"enabledDefault": {"type": "boolean"}, "durationMs": {"type": "integer", "minimum": 0, "maximum": 80}, "spatialMotion": {"const": false}, "springs": {"const": false}}}
+      }
+    },
+    "contrastPairs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "object", "additionalProperties": false, "required": ["foreground", "background", "minimum", "purpose"], "properties": {"foreground": {"type": "string", "minLength": 1}, "background": {"type": "string", "minLength": 1}, "minimum": {"type": "number", "minimum": 3, "maximum": 21}, "purpose": {"type": "string", "minLength": 1}}}}
+  },
+  "$defs": {
+    "color": {"type": "string", "pattern": "^#[0-9A-F]{6}$"},
+    "size": {"type": "number", "exclusiveMinimum": 0, "maximum": 4096},
+    "radius": {"type": "number", "minimum": 0, "maximum": 999},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relativePath": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9_./-]+$"},
+    "transition": {"type": "object", "additionalProperties": false, "required": ["durationMs", "easing"], "properties": {"durationMs": {"type": "integer", "minimum": 0, "maximum": 1000}, "easing": {"enum": ["linear", "easeOutCubic", "easeInCubic", "easeInOutCubic"]}, "translateY": {"type": "number", "minimum": 0, "maximum": 16}, "scaleFrom": {"type": "number", "minimum": 0.95, "maximum": 1}, "scaleTo": {"type": "number", "minimum": 0.95, "maximum": 1}, "opacityFrom": {"type": "number", "minimum": 0, "maximum": 1}, "opacityTo": {"type": "number", "minimum": 0, "maximum": 1}}}
+  }
+}

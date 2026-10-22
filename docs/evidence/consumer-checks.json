@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "elapsed_seconds": 24.16,
+  "checks": [
+    {
+      "check": "codex separate-project install, links, hashes, preservation, repeat",
+      "status": "pass",
+      "payload_files": 63,
+      "local_links": 49
+    },
+    {
+      "check": "codex local edit conflict leaves all files untouched",
+      "status": "pass"
+    },
+    {
+      "check": "claude separate-project install, links, hashes, preservation, repeat",
+      "status": "pass",
+      "payload_files": 63,
+      "local_links": 49
+    },
+    {
+      "check": "claude local edit conflict leaves all files untouched",
+      "status": "pass"
+    },
+    {
+      "check": "two agents coexist and retain their install records",
+      "status": "pass"
+    },
+    {
+      "check": "corrupted package is rejected before consumer writes",
+      "status": "pass"
+    },
+    {
+      "check": "destination symlink is refused without external or partial writes",
+      "status": "pass"
+    },
+    {
+      "check": "standalone packaged starter build outside toolkit checkout",
+      "status": "pass"
+    }
+  ]
+}
