@@ -5,6 +5,12 @@
 Help AI coding agents build clean, smooth Minecraft Java client interfaces using
 documented design rules, reusable skills, working examples, and verified code.
 
+## Branch workflow
+
+Use `main` as the working and delivery branch, as requested by the user. Commit
+and push completed, verified changes directly to `main` unless the user requests
+a different workflow.
+
 ## Current phase
 
 This repository currently contains the researched blueprint. Read
