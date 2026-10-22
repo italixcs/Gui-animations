@@ -8,7 +8,7 @@ documented design rules, reusable skills, working examples, and verified code.
 ## Current phase
 
 This repository currently contains the researched blueprint. Read
-`docs/PLAN.md`, `docs/DESIGN.md`, and `docs/RESEARCH.md` before implementation.
+`docs/PLAN.md`, `docs/USAGE.md`, `docs/DESIGN.md`, and `docs/RESEARCH.md` before implementation.
 The future file tree in the plan is a proposal, not a list of existing modules.
 Keep README status and milestone checkboxes accurate as implementation lands.
 

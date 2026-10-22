@@ -11,6 +11,7 @@ It does not contain a GUI library, installable mod, or tested Minecraft adapter 
 ## Start here
 
 - [Build plan](docs/PLAN.md): scope, architecture, repository layout, and milestones.
+- [Using it in your client or mod](docs/USAGE.md): one installation, one main skill, and reusable UI code.
 - [Examples and research](docs/RESEARCH.md): projects worth studying and their tradeoffs.
 - [Design direction](docs/DESIGN.md): typography, components, motion, and quality standards.
 - [Agent instructions](AGENTS.md): how to work in this repository.
@@ -20,11 +21,25 @@ It does not contain a GUI library, installable mod, or tested Minecraft adapter 
 | Part | Purpose |
 | --- | --- |
 | Agent instructions | Give coding agents an agreed workflow and clear constraints. |
-| Portable skills | Help agents design screens, implement motion, and review results. |
+| One main skill | Guides the agent through design, implementation, motion, and review as one workflow. |
 | Design tokens | Keep colors, spacing, typography, radii, and timings consistent. |
 | Reusable Java recipes | Demonstrate working components and animation behavior on an explicitly supported stack. |
 | In-game showcase | Let people and agents inspect the intended result in Minecraft. |
 | Verification guides | Catch blurry fonts, broken input, inconsistent timing, and rendering regressions. |
+
+## How you will use it
+
+Install the versioned toolkit into your own client/mod repository, then ask your
+coding agent: "Use minecraft-gui to build my settings screen."
+
+The main skill will identify your stack, use the shared theme and components,
+implement the screen, and guide verification in Minecraft. A short instruction
+in your project's agent rules will make the toolkit the default for future UI
+tasks. You will not have to choose and invoke each supporting workflow yourself.
+
+The skill teaches the agent; Java components and the renderer run inside the
+game. This installation flow is planned, not available yet. See the
+[usage design](docs/USAGE.md) for the concrete project layout and examples.
 
 ## First build
 

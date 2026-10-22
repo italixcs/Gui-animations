@@ -13,6 +13,11 @@ The repository should answer three questions:
 2. How do I implement it on this Minecraft stack?
 3. How do I prove the result is usable, smooth, and compatible?
 
+Users should consume the whole toolkit through one main `minecraft-gui` skill,
+installed in their own client/mod project. That skill routes between design,
+implementation, motion, and review workflows; users should not have to discover
+and invoke each workflow separately. See [usage and installation](USAGE.md).
+
 ## Confirmed direction and proposed choices
 
 | Decision | Status | Reason |
@@ -79,14 +84,20 @@ docs/
   PLAN.md
   RESEARCH.md
   DESIGN.md
+  USAGE.md
   getting-started.md
   compatibility.md
   verification.md
 .agents/skills/
-  minecraft-ui-design/SKILL.md
-  minecraft-ui-implement/SKILL.md
-  minecraft-ui-motion/SKILL.md
-  minecraft-ui-review/SKILL.md
+  minecraft-gui/
+    SKILL.md
+    references/
+      design.md
+      implementation.md
+      motion.md
+      review.md
+    assets/
+    templates/
 design/
   tokens.json
   component-specs/
@@ -99,23 +110,33 @@ examples/
   showcase-mod/
   prompts/
 tests/
+scripts/
+  install.py
 .github/workflows/
 ```
 
 Use standard `SKILL.md` frontmatter with a name and description, concise task
-steps, and links to supporting references. Keep each skill self-contained enough
-to copy into another repository. Document installation paths for supported
-agents; do not assume every agent automatically discovers `.agents/skills`.
-Add tool-specific adapters only where needed, pointing back to canonical rules.
+steps, and links to supporting references. Package the main skill with the
+guides, tokens, compatibility data, and source templates it actually needs.
+Keep installed references inside that package; do not point to absent files in
+the original toolkit checkout. Generate packaged copies from canonical sources
+and verify them together to prevent documentation and code from drifting.
 
-## Planned skills
+Document installation paths for supported agents; do not assume every agent
+automatically discovers `.agents/skills`. Preserve the consuming project's
+existing rules and add a short toolkit instruction. Additional entry points for
+individual workflows can come later if needed. No multi-agent runtime or MCP
+server is required to read these instructions and use the source templates.
 
-| Skill | Takes in | Produces |
+## Main skill and supporting workflows
+
+| Entry point / workflow | Takes in | Produces |
 | --- | --- | --- |
-| `minecraft-ui-design` | Screen purpose, target stack, constraints | Layout, hierarchy, component states, token choices, motion specification. |
-| `minecraft-ui-implement` | Design plus exact project versions | Working screen using existing components and the project's actual APIs. |
-| `minecraft-ui-motion` | Interaction and lifecycle requirements | Interruptible transitions, elapsed-time behavior, reduced-motion treatment. |
-| `minecraft-ui-review` | Implementation plus in-game evidence | Specific findings about typography, layout, input, animation, and performance. |
+| **`minecraft-gui` main skill** | A plain-language UI request in the consuming project | Selects the relevant workflows, reuses project decisions, and carries the task through implementation and verification. |
+| Design workflow | Screen purpose, target stack, constraints | Layout, hierarchy, component states, token choices, motion specification. |
+| Implementation workflow | Design plus exact project versions | Working screen using existing components and the project's actual APIs. |
+| Motion workflow | Interaction and lifecycle requirements | Interruptible transitions, elapsed-time behavior, reduced-motion treatment. |
+| Review workflow | Implementation plus in-game evidence | Specific findings about typography, layout, input, animation, and performance. |
 
 Include sample prompts such as: "Build a settings screen using this project's
 existing stack and the Gui-animations design rules. Include all input states,
@@ -176,11 +197,16 @@ against an assumed API. A desktop-only demo does not satisfy this milestone.
 - [ ] Define the mapping between design units, logical GUI coordinates, and
       device-space font sizes for the selected renderer.
 - [ ] Document component states and responsive layout rules.
-- [ ] Implement the four planned skills and installation instructions.
+- [ ] Implement the main skill and its four supporting workflows.
+- [ ] Package its guides, tokens, compatibility data, and validated templates.
+- [ ] Add a repeatable installer that preserves project rules and records the
+      toolkit version and imported files; document supported agent locations.
 - [ ] Add reusable prompt examples and a short end-to-end agent walkthrough.
 
 **Exit criterion:** an agent can discover the rules, identify its target stack,
 and produce a concrete screen specification without inventing UI conventions.
+Installing into a separate consuming repository must preserve existing files,
+produce no broken references, and select the main skill with one explicit request.
 
 ### 3. Components and motion recipes
 
@@ -209,6 +235,8 @@ interrupted interaction correctly. A click produces its action exactly once.
 
 **Exit criterion:** users can build and launch the showcase from documented
 commands, and an agent can reproduce its style in a second small screen.
+Verify this in a separate consuming client/mod repository using only the
+installed package, rather than relying on paths in the toolkit's own checkout.
 
 ### 5. Extend after the first release
 
